@@ -1087,3 +1087,71 @@ nav ul li a:hover, nav ul li a.active {
         gap: 20px;
     }
 }
+/* --- Mobile Responsive Styles --- */
+@media (max-width: 768px) {
+    /* 1. ෆෝන් එකේදී සාමාන්‍ය මෙනු එක හංගන්න */
+    #nav-menu {
+        position: fixed;
+        top: 70px; /* Header එකේ උස අනුව වෙනස් කරන්න */
+        right: -100%; /* මෙනු එක දකුණු පැත්තේ හැංගිලා තියෙන්නේ */
+        width: 70%;
+        height: calc(100vh - 70px);
+        background-color: rgba(0, 0, 0, 0.95); /* කළු පාට බැක්ග්‍රවුන්ඩ් එකක් */
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 50px;
+        transition: right 0.4s ease-in-out;
+        z-index: 999;
+    }
+
+    #nav-menu li {
+        margin: 20px 0;
+    }
+
+    /* JavaScript එකෙන් active ක්ලාස් එක වැටුණාම මෙනු එක එළියට එන්න */
+    #nav-menu.active {
+        right: 0;
+    }
+
+    /* 2. හැම්බර්ගර් (ඉරි කෑලි 3) බටන් එක ස්ටයිල් කිරීම */
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        cursor: pointer;
+        z-index: 1000;
+        margin-right: 20px; /* දකුණු පැත්තෙන් ඉඩ තියන්න */
+    }
+
+    .menu-toggle span {
+        display: block;
+        height: 3px;
+        width: 100%;
+        background-color: #ffffff; /* ඉරි කෑලි සුදු පාටින් පෙනෙන්න */
+        border-radius: 3px;
+        transition: all 0.3s ease;
+    }
+
+    /* 3. බටන් එක ක්ලික් කළාම 'X' අකුරක් වෙන්න ඇනිමේෂන් එක */
+    .menu-toggle.open span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .menu-toggle.open span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.open span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+}
+
+/* ඩෙස්ක්ටොප් එකේදී ෆෝන් මෙනු බටන් එක හංගන්න */
+@media (min-width: 769px) {
+    .menu-toggle {
+        display: none;
+    }
+}
