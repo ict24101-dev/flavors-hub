@@ -1089,59 +1089,67 @@ nav ul li a:hover, nav ul li a.active {
 }
 /* --- Mobile Responsive Fix --- */
 @media (max-width: 992px) {
-    /* 1. Header එක ඇතුළෙ බටන් එකයි ලෝගෝ එකයි දෙපැත්තට කරන්න */
     header {
         display: flex !important;
-        justify-content: space-between !important;
+        justify-content: space-between !important; /* ලෝගෝ එක වමට, මෙනු බටන් එක දකුණට */
         align-items: center !important;
         padding: 10px 20px !important;
         position: fixed !important;
         width: 100% !important;
         top: 0 !important;
         left: 0 !important;
-        box-sizing: border-box !important;
+        box-sizing: border-box !important; /* padding නිසා පිටුවෙන් එළියට පනින එක නවත්වයි */
     }
 
-    /* 2. මොබයිල් එකේදී සාමාන්‍ය ලිස්ට් එක හංගන්න */
+    /* ලෝගෝ එක ඕනෑවට වඩා ලොකු නම් ෆෝන් එකේදී පොඩි කරන්න */
+    .logo h1 {
+        font-size: 1.2rem !important; 
+    }
+    .logo img {
+        max-height: 40px !important;
+    }
+
+    /* මොබයිල් මෙනු ලිස්ට් එක */
     #nav-menu {
         position: fixed !important;
-        top: 70px !important; 
+        top: 60px !important; 
         right: -100% !important; 
         width: 70% !important;
-        height: calc(100vh - 70px) !important;
+        height: calc(100vh - 60px) !important;
         background-color: rgba(0, 0, 0, 0.95) !important; 
         flex-direction: column !important;
         align-items: center !important;
         justify-content: flex-start !important;
-        padding-top: 50px !important;
-        transition: right 0.4s ease-in-out !important;
+        padding-top: 40px !important;
+        transition: right 0.3s ease-in-out !important;
+        display: flex !important;
         z-index: 999 !important;
-        display: flex !important; /* හැංගිලා තිබ්බොත් එළියට ගන්න */
     }
 
     #nav-menu.active {
         right: 0 !important;
     }
 
-    /* 3. හැම්බර්ගර් (ඉරි කෑලි 3) බටන් එක අනිවාර්යයෙන්ම පෙන්වන්න */
+    /* හැම්බර්ගර් (ඉරි කෑලි 3) බටන් එක */
     .menu-toggle {
         display: flex !important;
         flex-direction: column !important;
         justify-content: space-between !important;
-        width: 30px !important;
-        height: 21px !important;
+        width: 25px !important;
+        height: 18px !important;
         cursor: pointer !important;
         z-index: 1000 !important;
+        margin-left: auto !important; /* දකුණු පැත්තටම තල්ලු කරලා තියාගන්න */
     }
 
     .menu-toggle span {
         display: block !important;
         height: 3px !important;
         width: 100% !important;
-        background-color: #ffffff !important; /* සුදු පාට ඉරි කෑලි */
+        background-color: #ffffff !important; /* ඉරි කෑලි සුදු පාටින් පෙනෙන්න */
         border-radius: 3px !important;
-        transition: all 0.3s ease !important;
     }
+}
 
     /* 4. බටන් එක ක්ලික් කළාම 'X' අකුරක් වෙන්න ඇනිමේෂන් එක */
     .menu-toggle.open span:nth-child(1) {
