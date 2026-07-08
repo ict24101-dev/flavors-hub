@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 🎯 Brand Name Updated -->
+    <title>Contact Us - Flavors Hub Restaurant</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="logo.png" alt="Flavors Hub Logo">
+        <h1>FLAVORS <span>HUB</span></h1>
+    </div>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="menu.html">MENU</a></li>
+            <li><a href="reserve.html">RESERVATION</a></li>
+            <li><a href="contact.html" class="active">CONTACT</a></li> <!-- Active Class Added -->
+        </ul>
+    </nav>
+</header>
+  
+<section id="contact" class="contact-section">
+      
+   <div class="contact-container">
+        <div class="contact-info">
+            <h2>CONTACT <span>US</span></h2>
+            <p class="contact-sub">We would love to hear from you. Get in touch with us today!</p>
+            
+            <div class="info-box">
+                <div class="info-item">
+                    <h3>📍 Address</h3>
+                    <p>123, Galle Road, Colombo 03, Sri Lanka</p>
+                </div>
+                <div class="info-item">
+                    <h3>📞 Phone</h3>
+                    <p>+94 11 234 5678 / +94 77 123 4567</p>
+                </div>
+                <div class="info-item">
+                    <h3>✉️ Email</h3>
+                    <p>info@flavorshub.com</p> <!-- Email Updated -->
+                </div>
+                <div class="info-item">
+                    <h3>⏰ Opening Hours</h3>
+                    <p>Monday - Sunday: 8:00 AM - 11:00 PM</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-form-container">
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="text" placeholder="Subject" required>
+                <textarea rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn-send">SEND MESSAGE</button>
+            </form>
+        </div>
+
+    </div>
+</section>
+
+<!-- 🛒 CART SIDEBAR (OPTIMIZED POSITION): Footer එකෙන් එළියට අරන් මෙතනට දැම්මා -->
+<div id="cart-sidebar" class="cart-sidebar">
+    <div class="cart-header">
+        <h2>Your Cart</h2>
+        <button id="close-cart" class="close-cart-btn">&times;</button>
+    </div>
+    
+    <div id="cart-items-container" class="cart-items-container">
+        <!-- JS වලින් ඩයිනමික්ව බඩු මෙතනට ලෝඩ් වෙයි -->
+    </div>
+    
+    <div class="cart-footer-sidebar">
+        <div class="cart-total">
+            <span>Total:</span>
+            <span id="cart-total-price">Rs. 0</span>
+        </div>
+        <button class="checkout-btn">Checkout Now</button>
+    </div>
+</div>
+
+<footer class="site-footer">
+    <div class="footer-container">
+        
+        <div class="footer-about">
+            <h3>FLAVORS <span class="highlight">HUB</span></h3>
+            <p>Flavors Hub brings you a unique fusion dining experience, combining rich local culinary traditions with global Western favorites. Driven by a passion for bold tastes and genuine hospitality.</p>
+        </div>
+
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="menu.html">Our Menu</a></li>
+                <li><a href="reserve.html">Book a Table</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-contact">
+            <h4>Contact Us</h4>
+            <p>📍 123, Galle Road, Colombo 03, Sri Lanka</p>
+            <p>📞 +94 11 234 5678</p>
+            <p>✉️ info@flavorshub.com</p> <!-- Email Updated -->
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 Flavors Hub Restaurant. All Rights Reserved.</p> <!-- Copyright Updated -->
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,1089 @@
+/* ==========================================================================
+   1. GLOBAL STYLES & CORE CONFIGURATION
+   ========================================================================== */
+html {
+    /* ක්ලික් කළ විට පිටුව සුමටව (Smooth) පහළට ලිස්සා යාමට */
+    scroll-behavior: smooth;
+    
+    /* Navigation bar එකට පිටුපසින් අකුරු සැඟවීම වැළැක්වීමට */
+    scroll-padding-top: 100px; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #000;
+}
+
+/* ==========================================================================
+   2. HEADER & NAVIGATION BAR
+   ========================================================================== */
+header {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background 0.4s ease, padding 0.4s ease;
+
+    /* 🔽 Glassmorphism Premium Header Effect 🔽 */
+    background: rgba(11, 11, 11, 0.75); /* 75%ක් පාරදෘශ්‍ය (Transparent) කළු පසුබිම */
+    backdrop-filter: blur(10px);        /* පිටුපස ඇති පින්තූර Blur කරන Glass Effect එක */
+    border-bottom-left-radius: 20px;    /* වම් පැත්තේ යට කොන රවුම් කිරීම */
+    border-bottom-right-radius: 20px;   /* දකුණු පැත්තේ යට කොන රවුම් කිරීම */
+    border-bottom: 1px solid rgba(255, 165, 0, 0.4); /* සියුම් Orange බෝඩරයක් */
+}
+
+/* JavaScript මඟින් එකතු කරන පසුබිම් වර්ණය (පහළට යද්දී කළු වීම) */
+header.scrolled {
+    background: rgba(0, 0, 0, 0.85);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    padding: 13px 80px; /* ටිකක් කුඩා වීම */
+}
+
+/* Logo Area Styles */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* ලෝගෝ පින්තූරය සහ අකුරු අතර පරතරය */
+    min-width: 400px; /* 🔽 "FLAVORS HUB" වචන දෙකම එක පේළියට තබා ගැනීමට ප්‍රමාණවත් ඉඩක් දීම 🔽 */
+}
+
+.logo img {
+    height: 60px; /* ලෝගෝ පින්තූරයේ උස */
+    width: auto;
+    object-fit: contain;
+}
+
+.logo h1 {
+    font-size: 33px;
+    font-weight: 600; /* Premium Bold ලුක් එක */
+    color: #ffffff; /* FLAVORS වචනය සුදු පැහැයෙන් */
+    letter-spacing: 2px; /* අකුරු ඈත් වෙලා ලස්සනට පෙනීමට */
+    margin: 0;
+    white-space: nowrap; 
+    display: inline-flex;
+    align-items: center;
+}
+
+.logo h1 span {
+    color: #ff9f1c; /* Flavors Hub තීම් එකේ තැඹිලි/රන්වන් පාට */
+    margin-left: 8px; /* FLAVORS සහ HUB වචන දෙක අතර පරතරය */
+    font-weight: 600; 
+}
+
+/* Navigation Links */
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 40px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover, nav ul li a.active {
+    color: #ff9f1c;
+}
+
+/* Mobile Hamburger Menu */
+.menu-toggle {
+    display: none; /* පරිගණක තිර වලදී නොපෙනේ */
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    width: 28px;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+/* ==========================================================================
+   3. HERO SECTION WITH VIDEO BACKGROUND
+   ========================================================================== */
+.hero {
+    margin-top: 100px;
+    height: calc(100vh - 100px);
+    position: relative; /* වීඩියෝ එක සෙක්ෂන් එක ඇතුළත තබා ගැනීමට */
+    overflow: hidden;   /* වීඩියෝ එක තිරයෙන් පිටතට පැනීම වැළැක්වීමට */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* වීඩියෝ එක පසුබිමට Full Screen සකස් කිරීම */
+.bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover; /* වීඩියෝ එක ඇද නොවී ලස්සනට Crop වී පෙනීමට */
+    z-index: 1; /* වීඩියෝ එක යටින්ම තැබීමට */
+}
+
+/* වීඩියෝ එක උඩින් වැටෙන අඳුරු පටලය (Overlay) - අකුරු පැහැදිලිව පෙනීමට */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)); /* වීඩියෝ එක 70%ක් අඳුරු කරයි */
+    z-index: 2;
+}
+
+/* අකුරු සහ බටන්ස් අඩංගු කොටස උඩින්ම පෙන්වීම */
+.content {
+    position: relative;
+    z-index: 3;
+}
+
+.content h1 {
+    font-size: 90px;
+    color: white;
+}
+
+.content h1 span {
+    color: #ff9f1c;
+}
+
+.content h3 {
+    color: white;
+    margin-top: 20px;
+    letter-spacing: 5px;
+    font-size: 30px;
+}
+
+.content p {
+    color: white;
+    margin-top: 25px;
+    font-size: 24px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 40px;
+    background: #ff9f1c;
+    color: white;
+    padding: 18px 40px;
+    text-decoration: none;
+    border-radius: 40px;
+    font-size: 22px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #ff9500;
+}
+
+/* ==========================================================================
+   4. ABOUT SECTION
+   ========================================================================== */
+.about-section {
+    padding: 140px 80px 100px 80px;
+    background: #0b0b0b; /* තද අළු/කළු පසුබිම */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.about-container {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 50px; /* කොටස් දෙක අතර පරතරය */
+}
+
+.about-content {
+    flex: 1;
+}
+
+.about-content h2 {
+    font-size: 40px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.about-content h2 span {
+    color: #ff9f1c;
+}
+
+.about-content h3 {
+    font-size: 24px;
+    color: #ffaa00;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.about-content p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #ccc;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.about-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 500px;
+    height: 400px;
+    object-fit: cover; /* පින්තූරය ඇද නොවී ලස්සනට කොටුවට හැදීමට */
+    border-radius: 15px;
+    border: 2px solid #ff9f1c; /* රන්වන් පාට බෝඩර් එකක් */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5); /* ලස්සන Shadow එකක් */
+}
+
+/* ==========================================================================
+   5. MENU & DYNAMIC FOOD CARDS SECTION
+   ========================================================================== */
+.menu-section {
+    padding: 140px 20px 80px 20px;
+    background: #000000; /* කළු පසුබිම */
+    color: white;
+    min-height: 100vh;
+}
+
+.menu-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.menu-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.menu-title h2 {
+    font-size: 40px;
+    letter-spacing: 2px;
+}
+
+.menu-title h2 span {
+    color: #ff9f1c;
+}
+
+.menu-title p {
+    color: #888;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* --- Category Filter Tabs --- */
+.category-tabs, .filter-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 40px 0;
+    flex-wrap: wrap; /* Mobile Screen වලදී බටන්ස් පේළියෙන් පේළියට හැඩගැසීමට */
+}
+
+.tab-btn {
+    background: #111;
+    color: #fff;
+    border: 1px solid #333;
+    padding: 10px 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Select වෙලා තියෙන බටන් එකේ පාට (Active State) */
+.tab-btn.active, .tab-btn:hover {
+    background: #ff9f1c;
+    color: #000;
+    border-color: #ff9f1c;
+    box-shadow: 0 4px 15px rgba(255, 159, 28, 0.3);
+}
+
+/* Food Items Grid */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px; /* Cards අතර පරතරය */
+}
+
+/* Premium Food Card Base Setup */
+.menu-card {
+    background: #111111; /* තද අළු පැහැති කාඩ් පසුබිම */
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid #222;
+    display: flex;
+    flex-direction: column; /* කාඩ් එක උඩ ඉඳන් යටට පෙළගස්වයි */
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    /* ⚡ Hover එකයි, Fade-in එකයි දෙකම පට්ටම Smooth කරන ට්‍රාන්සිෂන් එක */
+    transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.3s;
+}
+
+.menu-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* විස්තරය අඩු වුණත් වැඩි වුණත් ඉතිරි ඉඩ සම්පූර්ණයෙන් ලබා ගනී */
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.item-header h3 {
+    font-size: 22px;
+    color: white;
+}
+
+.item-header .price {
+    color: #ff9f1c;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.card-content p {
+    color: #aaa;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Card Action Layout (Order Button & Cart Inside Footer) */
+.card-footer {
+    margin-top: auto; /* බටන් එක හැම කාඩ් එකකම එකම මට්ටමකට යටටම තල්ලු කරයි */
+    padding-top: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* මිල/විස්තර වමටත්, බටන් එක දකුණු කෙළවරටත් තල්ලු කරයි */
+    align-items: center;
+    border-top: 1px solid #1f1f1f; /* සියුම් වෙන් කිරීමේ රේඛාවක් */
+}
+
+/* Order Now Standard Button */
+.order-btn {
+    display: block;
+    width: 100%;
+    background: transparent;
+    color: #ff9f1c;
+    border: 1px solid #ff9f1c;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Add to Cart Quick Button */
+.cart-btn {
+    background: #ff9f1c; /* තේමා වර්ණය (Orange) */
+    color: #000000;      /* Icon එක කළු පැහැයෙන් */
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px; /* බටන් එක රවුම් කිරීමට */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cart-btn:hover {
+    background: #ffffff;  /* පසුබිම සුදු පැහැයට හැරේ */
+    color: #ff9f1c;       /* Icon එක Orange පැහැයට හැරේ */
+    transform: translateY(-3px); /* පොඩ්ඩක් උඩට එසවේ */
+    box-shadow: 0 5px 15px rgba(255, 159, 28, 0.4); /* Glow effect එකක් */
+}
+
+/* --- Smooth Filter Animations (JS controlled) --- */
+/* කාඩ් එකක් හැංගෙද්දී හිටිගමන් Layout එක කැඩෙන්නේ නැති වෙන්න පාවිච්චි වේ */
+.menu-card.hide {
+    opacity: 0;
+    transform: scale(0.9) translateY(15px);
+    pointer-events: none; /* හැංගිලා තියෙද්දී ක්ලික් කරන්න බැරි වෙන්න */
+}
+
+/* බ්‍රවුසර් එකට Layout එක හරියටම ගන්න ඇත්තටම හැංගිය යුතු අවස්ථාව */
+.menu-card.completely-hidden {
+    display: none !important;
+}
+
+/* Hover Effect එක (කිසිම ගැටලුවක් නැතිව සුපිරියටම Smooth වැඩ කරයි) */
+.menu-card:not(.hide):not(.completely-hidden):hover {
+    transform: scale(1.05) translateY(-5px) !important;
+    border-color: #ff9f1c;
+    box-shadow: 0 10px 20px rgba(255, 159, 28, 0.2);
+}
+
+/* ==========================================================================
+   6. FLOATING QUICK CART & SIDEBAR OVERLAY
+   ========================================================================== */
+.floating-cart {
+    position: fixed;
+    top: 120px; /* Navbar එකට මදක් පහළින් */
+    right: 30px; /* දකුණු පැත්තේ කෙළවරින් */
+    background: #ff9f1c;
+    color: #000;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    box-shadow: 0 5px 15px rgba(255, 159, 28, 0.4);
+    cursor: pointer;
+    z-index: 999; /* පිටුවේ අනෙක් දේවල් වලට උඩින් පෙනීමට */
+    transition: transform 0.3s ease;
+}
+
+.floating-cart:hover {
+    transform: scale(1.1);
+}
+
+/* Cart එක ඇතුළේ තියෙන Number Badge එක */
+#cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ff3b30;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 50%;
+}
+
+/* --- Cart Sidebar Layout --- */
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px; /* මුලින්ම සඟවා තැබීමට */
+    width: 380px;
+    height: 100vh;
+    background: #111;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+    z-index: 2000; /* Header එකටත් උඩින් පෙනීමට */
+    transition: right 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding: 20px;
+}
+
+/* Cart එක Open වූ විට Active වන Class එක */
+.cart-sidebar.open {
+    right: 0;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #222;
+    padding-bottom: 15px;
+}
+
+.cart-header h2 { color: #ff9f1c; }
+
+.close-cart-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Items List Container */
+.cart-items-container {
+    flex-grow: 1;
+    overflow-y: auto; /* Items ගොඩක් එකතු වුණොත් Scroll වීමට */
+    padding: 20px 0;
+}
+
+/* Single Cart Item Layout */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1a1a1a;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.item-details h4 { font-size: 1rem; margin-bottom: 5px; }
+.item-details p { color: #ff9f1c; font-weight: bold; font-size: 0.9rem; }
+
+/* Quantity Controls (+/- Buttons) */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #222;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.qty-btn {
+    background: transparent;
+    border: none;
+    color: #ff9f1c;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+}
+
+.qty-number { font-weight: bold; font-size: 1rem; }
+
+/* Sidebar Footer & Checkout */
+.cart-footer-sidebar {
+    border-top: 1px solid #222;
+    padding-top: 15px;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+#cart-total-price { color: #ff9f1c; }
+
+.checkout-btn {
+    width: 100%;
+    background: #ff9f1c;
+    color: black;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.checkout-btn:hover { background: #ffaa00; }
+
+/* ==========================================================================
+   7. RESERVATION SECTION
+   ========================================================================== */
+.reserve-section {
+    padding: 140px 20px 80px 20px;
+    background: #0b0b0b; /* තද අළු පැහැති පසුබිම */
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reserve-container {
+    max-width: 700px; /* Form එක මැදට වන්නට ලස්සනට තබා ගැනීමට */
+    width: 100%;
+    margin: 0 auto;
+}
+
+.reserve-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.reserve-title h2 {
+    font-size: 40px;
+    letter-spacing: 2px;
+}
+
+.reserve-title h2 span {
+    color: #ff9f1c;
+}
+
+.reserve-title p {
+    color: #888;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+/* Form Styles */
+.reserve-form {
+    background: #111111;
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid #222;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.form-group {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* Inputs, Select, සහ Textarea හැඩගැස්වීම */
+.reserve-form input,
+.reserve-form select,
+.reserve-form textarea {
+    width: 100%;
+    padding: 15px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+/* Input එකක් ක්ලික් කළ විට Border එක රන්වන් පාට වීමට */
+.reserve-form input:focus,
+.reserve-form select:focus,
+.reserve-form textarea:focus {
+    border-color: #ff9f1c;
+}
+
+/* Submit Button එක */
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    background: #ff9f1c;
+    color: white;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-submit:hover {
+    background: #ff9500;
+    transform: scale(1.01);
+}
+
+/* ==========================================================================
+   8. CONTACT US SECTION
+   ========================================================================== */
+.contact-section {
+    padding: 140px 20px 80px 20px;
+    background: #000000; /* කළු පසුබිම */
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-container {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    gap: 60px; /* කොටස් දෙක අතර පරතරය */
+    align-items: flex-start;
+}
+
+.contact-info, .contact-form-container {
+    flex: 1;
+}
+
+.contact-info h2 {
+    font-size: 40px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.contact-info h2 span {
+    color: #ff9f1c;
+}
+
+.contact-sub {
+    color: #888;
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+
+.info-item {
+    margin-bottom: 25px;
+}
+
+.info-item h3 {
+    font-size: 18px;
+    color: #ff9f1c;
+    margin-bottom: 5px;
+}
+
+.info-item p {
+    color: #ccc;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Contact Form Styles */
+.contact-form {
+    background: #111111;
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid #222;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #ff9f1c;
+}
+
+/* Send Button */
+.btn-send {
+    width: 100%;
+    padding: 15px;
+    background: #ff9f1c;
+    color: white;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-send:hover {
+    background: #ff9500;
+}
+
+/* ==========================================================================
+   9. INFINITE MINI MENU SLIDER (FOOTER IMAGE CAROUSEL)
+   ========================================================================== */
+.menu-slider-section {
+    background: #0b0b0b; /* Footer එකෙන් වෙන් කරලා අඳුරගන්න පොඩ්ඩක් වෙනස් කළු පාටක් */
+    padding: 60px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 35px; /* පින්තූර සහ බටන් එක අතර පැහැදිලි පරතරය */
+    width: 100%;
+    margin-bottom: 40px; /* Footer එක උඩ බටන් එක වැහෙන එක නවත්තන්න පරතරයක් */
+}
+
+.slider-container {
+    overflow: hidden;
+    width: 100%;
+    height: 220px; /* පින්තූර වලට සරිලන උසක් */
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* වම් පැත්තට ලිස්සා යන Track එක */
+.slider-track {
+    display: flex;
+    width: calc(250px * 10); 
+    animation: scrollLeft 25s linear infinite; 
+}
+
+.slide {
+    width: 250px;
+    height: 200px;
+    padding: 0 10px;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #222;
+    transition: transform 0.3s ease;
+}
+
+.slide img:hover {
+    transform: scale(1.05);
+    border-color: #ff9f1c;
+}
+
+/* වමට යන Animation එක */
+@keyframes scrollLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-250px * 5)); }
+}
+
+/* --- පින්තූර වලට යටින් ඇති බටන් එකේ Styles --- */
+.slider-bottom-btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 99; /* බටන් එක හැමවිටම උඩින්ම පෙනෙන්න සැලැස්වීම */
+}
+
+.explore-btn-down {
+    display: inline-block;
+    background: #ff9f1c; /* Flavors Hub තේමාවේ Orange පාට */
+    color: #000;
+    padding: 15px 45px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-decoration: none;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(255, 159, 28, 0.3);
+    transition: all 0.3s ease;
+}
+
+.explore-btn-down:hover {
+    background: #ffaa00;
+    transform: translateY(-3px); /* Hover කළ විට පොඩ්ඩක් උඩට එසවීම */
+    box-shadow: 0 8px 20px rgba(255, 159, 28, 0.5);
+}
+
+/* ==========================================================================
+   10. SITE FOOTER SECTION
+   ========================================================================== */
+.site-footer {
+    background-color: #0b0b0b;
+    color: #ffffff;
+    padding: 30px 0 15px 0;
+    font-family: 'Poppins', sans-serif;
+    border-top: 1px solid #222;
+}
+
+.footer-container {
+    max-width: 1400px; /* Flavors Hub තව වමට තල්ලු කිරීමට 1400px කළා */
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 60px;   /* දෙපැත්තෙන් ඇති ඉඩ තරමක් අඩු කළා */
+    gap: 40px;
+}
+
+.footer-about, .footer-links, .footer-contact {
+    flex: 1;
+    min-width: 250px;
+}
+
+/* මෙනු බාර් එකේ Logo ස්ටයිල් එකම Footer එකට ලබා දීම */
+.footer-about h3 {
+    font-size: 1.5rem;          /* මෙනු බාර් එකේ ප්‍රමාණයට සමාන කළා */
+    font-weight: 700;           /* අකුරු තද (Bold) කළා */
+    letter-spacing: 1px;        /* අකුරු අතර පරතරය */
+    margin-bottom: 15px;
+    color: #ffffff;             /* FLAVORS කොටස සුදු පැහැයෙන් */
+}
+
+/* HUB කොටස Orange/Yellow පැහැයෙන් පෙන්වීමට */
+.footer-about h3 .highlight {
+    color: #ff9f1c;             /* මෙනු බාර් එකේ තියෙන නිවැරදිම Orange පාට */
+}
+
+/* ඡේදය පේළි 2කට සීමා කිරීම */
+.footer-about p {
+    color: #aaa;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    max-width: 320px; /* පළල සීමා කිරීමෙන් අකුරු පේළි 2කින් පසුව පහළට යයි */
+}
+
+.footer-links h4, .footer-contact h4 {
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+    color: #ff9f1c;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 6px;
+}
+
+.footer-links ul li a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: #ff9f1c;
+}
+
+.footer-contact p {
+    color: #ccc;
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+
+/* Copyright Section */
+.footer-bottom {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #1a1a1a;
+}
+
+.footer-bottom p {
+    color: #666;
+    font-size: 0.75rem;
+}
+
+/* ==========================================================================
+   11. MEDIA QUERIES (MOBILE RESPONSIVENESS)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Header Scrolled Settings for Mobile */
+    header {
+        padding: 0 20px;
+    }
+    header.scrolled {
+        padding: 15px 20px;
+    }
+    
+    /* Show Hamburger Menu Button */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Pull Out Navigation Menu */
+    nav ul {
+        position: absolute;
+        top: 70px;
+        right: -100%; /* මුලින් මෙනුව හැංගී පවතී */
+        background: #111;
+        width: 200px;
+        height: 300px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        transition: right 0.4s ease;
+        border-radius: 10px 0 0 10px;
+    }
+
+    /* JavaScript මඟින් මෙනුව එළියට ගැනීම */
+    nav ul.active {
+        right: 0;
+    }
+
+    /* ಇරි කෑලි 3 'X' අකුරක් බවට පත් කිරීම */
+    .menu-toggle.open span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+    .menu-toggle.open span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* About Section Mobile Fix */
+    .about-section {
+        padding: 60px 20px;
+    }
+    .about-container {
+        flex-direction: column; /* එක යට එක වැටීමට */
+        gap: 30px;
+    }
+    .about-image img {
+        height: 300px;
+    }
+
+    /* Menu Section Mobile Fix */
+    .menu-section {
+        padding: 60px 20px;
+    }
+    .menu-grid {
+        grid-template-columns: 1fr; /* Mobile වලදී එක යට එක වැටේ */
+    }
+
+    /* Contact Section Mobile Fix */
+    .contact-section {
+        padding: 60px 20px;
+    }
+    .contact-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+    .contact-form {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Reservation Form Mobile Fix */
+    .reserve-form {
+        padding: 25px;
+    }
+    .form-group {
+        flex-direction: column;
+        gap: 20px;
+    }
+}

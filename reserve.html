@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 🎯 Brand Name Updated -->
+    <title>Book A Table - Flavors Hub Restaurant</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="logo.png" alt="Flavors Hub Logo">
+        <h1>FLAVORS <span>HUB</span></h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="menu.html">MENU</a></li>
+            <li><a href="reserve.html" class="active">RESERVATION</a></li> <!-- Active Class Added -->
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+    </nav>
+</header>
+    
+<section id="reserve" class="reserve-section">
+    <div class="reserve-container">
+        
+        <div class="reserve-title">
+            <h2>BOOK A <span>TABLE</span></h2>
+            <p>Make a reservation to enjoy your perfect dining experience</p>
+        </div>
+
+        <form class="reserve-form">
+            <div class="form-group">
+                <input type="text" placeholder="Your Name" required>
+                <input type="tel" placeholder="Phone Number" required>
+            </div>
+
+            <div class="form-group">
+                <input type="date" required>
+                <input type="time" required>
+            </div>
+
+            <div class="form-group">
+                <select required>
+                    <option value="" disabled selected>Number of Guests</option>
+                    <option value="1">1 Person</option>
+                    <option value="2">2 People</option>
+                    <option value="3">3 People</option>
+                    <option value="4">4 People</option>
+                    <option value="5">5+ People</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <textarea rows="4" placeholder="Special Requests (Optional)"></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">CONFIRM BOOKING</button>
+        </form>
+
+    </div>
+</section>
+
+<!-- 🛒 CART SIDEBAR (OPTIMIZED POSITION): මුළු සයිට් එකේම එකම විදිහට වැඩ කරන්න මෙතනටත් දැම්මා -->
+<div id="cart-sidebar" class="cart-sidebar">
+    <div class="cart-header">
+        <h2>Your Cart</h2>
+        <button id="close-cart" class="close-cart-btn">&times;</button>
+    </div>
+    
+    <div id="cart-items-container" class="cart-items-container">
+        <!-- JS වලින් ඩයිනමික්ව බඩු මෙතනට ලෝඩ් වෙයි -->
+    </div>
+    
+    <div class="cart-footer-sidebar">
+        <div class="cart-total">
+            <span>Total:</span>
+            <span id="cart-total-price">Rs. 0</span>
+        </div>
+        <button class="checkout-btn">Checkout Now</button>
+    </div>
+</div>
+
+<footer class="site-footer">
+    <div class="footer-container">
+        
+        <div class="footer-about">
+            <h3>FLAVORS <span class="highlight">HUB</span></h3>
+            <p>Flavors Hub brings you a unique fusion dining experience, combining rich local culinary traditions with global Western favorites. Driven by a passion for bold tastes and genuine hospitality.</p>
+        </div>
+
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="menu.html">Our Menu</a></li>
+                <li><a href="reserve.html">Book a Table</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-contact">
+            <h4>Contact Us</h4>
+            <p>📍 123, Galle Road, Colombo 03, Sri Lanka</p>
+            <p>📞 +94 11 234 5678</p>
+            <p>✉️ info@flavorshub.com</p> <!-- Email Updated -->
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 Flavors Hub Restaurant. All Rights Reserved.</p> <!-- Copyright Updated -->
+    </div>
+</footer>
+</body>
+</html>

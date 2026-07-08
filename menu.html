@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Menu - Flavors Hub Restaurant</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <div class="floating-cart">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span id="cart-count">0</span>
+    </div>
+
+<header>
+    <div class="logo">
+        <img src="logo.png" alt="Flavors Hub Logo">
+        <h1>FLAVORS <span>HUB</span></h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="menu.html" class="active">MENU</a></li>
+            <li><a href="reserve.html">RESERVATION</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+    </nav>
+</header>
+    
+<section id="menu" class="menu-section">
+    <div class="menu-container">
+        
+        <div class="menu-title">
+            <h2>OUR <span>MENU</span></h2>
+        </div>
+
+        <div class="category-tabs">
+            <button class="tab-btn active" data-filter="all">All</button>
+            <button class="tab-btn" data-filter="srilankan">Sri Lankan</button>
+            <button class="tab-btn" data-filter="western">Western</button>
+            <button class="tab-btn" data-filter="dessert">Dessert</button>
+        </div>
+
+        <div class="menu-grid">
+            
+            <div class="menu-card active-card" data-category="srilankan">
+                <img src="menu-item1.jpg" alt="Fried Rice">
+                <div class="card-content">
+                    <div class="item-header">
+                        <h3>Chicken Fried Rice</h3>
+                        <span class="price">Rs. 1200</span>
+                    </div>
+                    <p>Classic wok-tossed Basmati rice with fresh vegetables, eggs, and a blend of savory sauces.</p>
+                    <div class="card-footer">
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card active-card" data-category="srilankan">
+                <img src="menu-item2.jpg" alt="Kottu">
+                <div class="card-content">
+                    <div class="item-header">
+                        <h3>Spicy Chicken Kottu</h3>
+                        <span class="price">Rs. 1250</span>
+                    </div>
+                    <p>Stir-fried shredded roti cooked with fresh vegetables, eggs, tender chicken, and aromatic spices.</p>
+                    <div class="card-footer">
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card active-card" data-category="srilankan">
+                <img src="menu-item3.jpg" alt="Parotta">
+                <div class="card-content">
+                    <div class="item-header">
+                        <h3>Parotta with Gravy</h3>
+                        <span class="price">Rs. 250</span>
+                    </div>
+                    <p>Flaky, multi-layered flatbread served with a rich, aromatic Sri Lankan spiced gravy.</p>
+                    <div class="card-footer">
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card active-card" data-category="srilankan">
+                <img src="menu-item4.jpg" alt="Rice & Curry">
+                <div class="card-content">
+                    <div class="item-header">
+                        <h3>Ceylon Flavored Rice & Curry</h3>
+                        <span class="price">Rs. 450</span>
+                    </div>
+                    <p>Authentic basmati rice served with 5 traditional Sri Lankan curries and papadum.</p>
+                    <div class="card-footer">
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card active-card" data-category="srilankan">
+                <img src="menu-item15.jpg" alt="Hoppers">
+                <div class="card-content">
+                    <div class="item-header">
+                        <h3>Traditional Hoppers Set</h3>
+                        <span class="price">Rs. 450</span> </div>
+                    <p>A basket of traditional lacy, crispy-edged rice crepes with a soft spongy center, served alongside a fiery Lunu Miris and sweet-spicy Seeni Sambol.</p>
+                    <div class="card-footer">
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card active-card" data-category="western">
+                <img src="menu-item7.jpg" alt="Noodles">
+                <div class="card-content">
+                    <div class="item-header">
+                        <h3>Noodles</h3>
+                        <span class="price">Rs. 750</span>
+                    </div>
+                    <p>Wok-tossed noodles mixed with fresh, crunchy vegetables and authentic island spices.</p>
+                    <div class="card-footer">
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card active-card" data-category="western">
+                <img src="menu-item8.jpg" alt="Pasta">
+                <div class="card-content">
+                    <div class="item-header">
+                        <h3>Creamy Cajun Sausage Pasta</h3>
+                        <span class="price">Rs. 650</span>
+                    </div>
+                    <p>Penne pasta tossed with smoky sausage in a rich, creamy, and boldly spiced Cajun sauce.</p>
+                    <div class="card-footer">
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card active-card" data-category="western">
+                <img src="menu-item10.jpg" alt="Pizza">
+                <div class="card-content">
+                    <div class="item-header">
+                        <h3>Ultimate Cheesy Pizza</h3>
+                        <span class="price">Rs. 2950</span>
+                    </div>
+                    <p>An absolute cheese lover's dream, featuring a crispy crust loaded with a rich, gooey blend of premium melted mozzarella, cheddar, and aromatic herbs.</p>
+                    <div class="card-footer">
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card active-card" data-category="western">
+                <img src="menu-item11.jpg" alt="Pizza">
+                <div class="card-content">
+                    <div class="item-header">
+                        <h3>Sausage Pizza</h3>
+                        <span class="price">Rs. 2900</span>
+                    </div>
+                    <p>A savory delight loaded with premium sliced chicken sausages, layered over a rich tomato base, topped with gooey melted mozzarella and a hint of spice.</p>
+                    <div class="card-footer">
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card active-card" data-category="western">
+                <img src="menu-item12.jpg" alt="Pizza">
+                <div class="card-content">
+                    <div class="item-header">
+                        <h3>Chicken Pizza</h3>
+                        <span class="price">Rs. 2950</span>
+                    </div>
+                    <p>Tender, seasoned chicken, melty cheese, and a perfectly baked crust come together in every bite. A crowd-pleasing favorite packed with savory goodness.</p>
+                    <div class="card-footer">
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card active-card" data-category="western">
+                <img src="menu-item13.jpg" alt="Burger">
+                <div class="card-content">
+                    <div class="item-header">
+                        <h3>Double Cheese Burger</h3>
+                        <span class="price">Rs. 750</span>
+                    </div>
+                    <p>A meat lover's ultimate satisfaction, featuring two juicy grilled patties layered with double melted cheddar cheese, fresh pickles, and our signature gourmet burger sauce.</p>
+                    <div class="card-footer">
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card active-card" data-category="dessert">
+                <img src="menu-item5.jpg" alt="Milkshake">
+                <div class="card-content">
+                    <div class="item-header">
+                        <h3>Chocolate Milkshake</h3>
+                        <span class="price">Rs. 350</span>
+                    </div>
+                    <p>Rich and creamy chocolate milkshake topped with fresh whipped cream and chocolate drizzle.</p>
+                    <div class="card-footer">
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card active-card" data-category="dessert">
+                <img src="menu-item6.jpg" alt="Watalappan">
+                <div class="card-content">
+                    <div class="item-header">
+                        <h3>Watalappan</h3>
+                        <span class="price">Rs. 350</span>
+                    </div>
+                    <p>Traditional Sri Lankan jaggery pudding made with rich coconut milk, eggs, and aromatic spices like cardamom.</p>
+                    <div class="card-footer">
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card active-card" data-category="dessert">
+                <img src="menu-item9.jpg" alt="Fruit Salad">
+                <div class="card-content">
+                    <div class="item-header">
+                        <h3>Fruit Salad</h3>
+                        <span class="price">Rs. 350</span>
+                    </div>
+                    <p>A refreshing mix of seasonal tropical fruits tossed in a light, sweet honey-lime glaze.</p>
+                    <div class="card-footer">
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card active-card" data-category="dessert">
+                <img src="menu-item14.jpg" alt="Chocolate Cake">
+                <div class="card-content">
+                    <div class="item-header">
+                        <h3>Double Chocolate Fudge Cake</h3>
+                        <span class="price">Rs. 350</span>
+                    </div>
+                    <p>An indulgent slice of rich, moist chocolate cake layered with smooth fudge and topped with an extra drizzle of premium warm chocolate syrup.</p>
+                    <div class="card-footer">
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div id="cart-sidebar" class="cart-sidebar">
+    <div class="cart-header">
+        <h2>Your Cart</h2>
+        <button id="close-cart" class="close-cart-btn">&times;</button>
+    </div>
+    
+    <div id="cart-items-container" class="cart-items-container">
+        </div>
+    
+    <div class="cart-footer-sidebar">
+        <div class="cart-total">
+            <span>Total:</span>
+            <span id="cart-total-price">Rs. 0</span>
+        </div>
+        <button class="checkout-btn">Checkout Now</button>
+    </div>
+</div>
+
+<footer class="site-footer">
+    <div class="footer-container">
+        
+        <div class="footer-about">
+            <h3>FLAVORS<span class="highlight">HUB</span></h3>
+            <p>Flavors Hub brings you a unique fusion dining experience, combining rich local culinary traditions with global Western favorites. Driven by a passion for bold tastes and genuine hospitality.</p>
+        </div>
+
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="menu.html">Our Menu</a></li>
+                <li><a href="reserve.html">Book a Table</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-contact">
+            <h4>Contact Us</h4>
+            <p>📍 123, Galle Road, Colombo 03, Sri Lanka</p>
+            <p>📞 +94 11 234 5678</p>
+            <p>✉️ info@flavorshub.com</p> </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 Flavors Hub Restaurant. All Rights Reserved.</p> </div>
+</footer>
+
+</body>
+</html>
