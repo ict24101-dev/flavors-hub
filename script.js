@@ -129,3 +129,18 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+const mobileMenu = document.getElementById('mobile-menu');
+const navMenu = document.getElementById('nav-menu');
+
+mobileMenu.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+    navMenu.classList.toggle('active');
+});
+
+// මෙනු එකේ ලින්ක් එකක් ක්ලික් කරපු ගමන් මෙනු එක ආපහු හැංගෙන්න
+document.querySelectorAll('nav ul li a').forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        navMenu.classList.remove('active');
+    });
+});
