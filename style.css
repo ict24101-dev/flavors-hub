@@ -996,13 +996,14 @@ nav ul li a:hover, nav ul li a.active {
 }
 
 /* ==========================================================================
-   11. MEDIA QUERIES (MOBILE RESPONSIVENESS) - FIXED
+   11. MEDIA QUERIES (MOBILE RESPONSIVENESS) - LEFT BUTTON FIX
    ========================================================================== */
 
 @media (max-width: 992px) {
-    /* 1. Header Fix */
     header {
         display: flex !important;
+        /* ⚠️ row-reverse දැම්මාම බටන් එක වමටත්, ලෝගෝ එක දකුණටත් මාරු වෙනවා */
+        flex-direction: row-reverse !important; 
         justify-content: space-between !important;
         align-items: center !important;
         padding: 15px 20px !important;
@@ -1011,29 +1012,37 @@ nav ul li a:hover, nav ul li a.active {
         top: 0 !important;
         left: 0 !important;
         box-sizing: border-box !important;
-        z-index: 99999 !important; /* වෙනත් දේවලට යට නොවී උඩින්ම පෙනෙන්න */
-        background-color: #111111 !important; /* Header බැක්ග්‍රවුන්ඩ් එක කළු කළා */
+        z-index: 99999 !important;
+        background-color: #111111 !important;
     }
 
-    /* ලෝගෝ එක ෆෝන් එකට ගැලපෙන්න */
+    /* ලෝගෝ එකේ අකුරු සහ පින්තූර */
+    .logo {
+        display: flex !important;
+        align-items: center !important;
+        margin-left: auto !important; /* දකුණු පැත්තට තල්ලු කිරීමට */
+    }
     .logo h1 {
         font-size: 1.2rem !important; 
         color: #ffffff !important;
+        margin: 0 !important;
     }
     .logo img {
         max-height: 40px !important;
+        margin-right: 8px !important;
     }
 
-    /* 2. සාමාන්‍ය මොබයිල් නොවන මෙනුව සම්පූර්ණයෙන්ම හංගන්න */
+    /* සාමාන්‍ය මෙනුව හංගන්න */
     header nav:not(#nav-menu) {
         display: none !important;
     }
 
-    /* 3. මොබයිල් මෙනු ලිස්ට් එක (#nav-menu) */
+    /* ⚠️ වම් පැත්තේ ඉඳන් එළියට එන මොබයිල් මෙනුව */
     #nav-menu {
         position: fixed !important;
         top: 70px !important; 
-        right: -100% !important; /* මුලින් හැංගිලා තියෙන්නේ */
+        left: -100% !important; /* වම් පැත්තේ හැංගෙන්න සෙට් කළා */
+        right: auto !important;
         width: 70% !important;
         height: calc(100vh - 70px) !important;
         background-color: #111111 !important; 
@@ -1042,17 +1051,17 @@ nav ul li a:hover, nav ul li a.active {
         justify-content: flex-start !important;
         padding-top: 40px !important;
         gap: 25px !important;
-        transition: right 0.4s ease !important;
+        transition: left 0.4s ease !important; /* වමේ සිට එළියට ඒමට */
         display: flex !important;
         z-index: 99998 !important;
         list-style: none !important;
         margin: 0 !important;
-        border-radius: 10px 0 0 10px;
+        border-radius: 0 10px 10px 0;
     }
 
-    /* JS මඟින් active කළ විට මෙනුව එළියට එයි */
+    /* ක්ලික් කළ විට වම් පැත්තෙන් මෙනුව එළියට එයි */
     #nav-menu.active {
-        right: 0 !important;
+        left: 0 !important;
     }
 
     #nav-menu li a {
@@ -1062,7 +1071,7 @@ nav ul li a:hover, nav ul li a.active {
         font-weight: bold !important;
     }
 
-    /* 4. හැම්බර්ගර් (ඉරි කෑලි 3) බටන් එක අනිවාර්යයෙන්ම පෙන්වීම */
+    /* ⚠️ වම් පැත්තට මාරු කරපු හැම්බර්ගර් බටන් එක */
     .menu-toggle {
         display: flex !important;
         flex-direction: column !important;
@@ -1070,49 +1079,36 @@ nav ul li a:hover, nav ul li a.active {
         width: 25px !important;
         height: 18px !important;
         cursor: pointer !important;
-        z-index: 99999 !important; /* උඩින්ම තබා ගැනීමට */
+        z-index: 99999 !important;
+        margin-right: auto !important; /* වම් කෙළවරේම තබා ගැනීමට */
     }
 
     .menu-toggle span {
         display: block !important;
         height: 3px !important;
         width: 100% !important;
-        background-color: #ffffff !important; /* සුදු පාට ඉරි */
+        background-color: #ffffff !important;
         border-radius: 3px !important;
         transition: all 0.3s ease !important;
     }
 
-    /* ඉරි කෑලි 3 'X' අකුරක් බවට පත් කිරීමේ ඇනිමේෂන් */
-    .menu-toggle.open span:nth-child(1) {
-        transform: translateY(7px) rotate(45deg) !important;
-    }
-    .menu-toggle.open span:nth-child(2) {
-        opacity: 0 !important;
-    }
-    .menu-toggle.open span:nth-child(3) {
-        transform: translateY(-7px) rotate(-45deg) !important;
-    }
+    /* 'X' ඇනිමේෂන් */
+    .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg) !important; }
+    .menu-toggle.open span:nth-child(2) { opacity: 0 !important; }
+    .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg) !important; }
 
-    /* --- Sections Mobile Fixes --- */
+    /* Sections Mobile Fixes */
     .about-section { padding: 60px 20px; }
     .about-container { flex-direction: column; gap: 30px; }
     .about-image img { height: 300px; }
-
     .menu-section { padding: 60px 20px; }
     .menu-grid { grid-template-columns: 1fr; }
-
     .contact-section { padding: 60px 20px; }
     .contact-container { flex-direction: column; gap: 40px; }
     .contact-form { padding: 25px; }
 }
 
 @media (max-width: 600px) {
-    /* Reservation Form Mobile Fix */
-    .reserve-form {
-        padding: 25px;
-    }
-    .form-group {
-        flex-direction: column;
-        gap: 20px;
-    }
+    .reserve-form { padding: 25px; }
+    .form-group { flex-direction: column; gap: 20px; }
 }
