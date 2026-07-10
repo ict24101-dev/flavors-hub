@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // ==========================================
-    // 🛒 1. CART SYSTEM INITIALIZATION
-    // ==========================================
+    
     let cart = [];
 
     const cartCountElement = document.getElementById("cart-count");
@@ -12,11 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeCartBtn = document.getElementById("close-cart");
     const orderButtons = document.querySelectorAll(".order-btn");
 
-    // Sidebar විවෘත කිරීම සහ වැසීම
+    
     floatingCart?.addEventListener("click", () => cartSidebar?.classList.add("open"));
     closeCartBtn?.addEventListener("click", () => cartSidebar?.classList.remove("open"));
 
-    // Order Now බටන් ක්ලික් ඉවෙන්ට්ස්
     orderButtons.forEach(button => {
         button.addEventListener("click", function () {
             const cardContent = this.closest(".card-content");
@@ -26,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             addToCart(itemName, itemPrice);
 
-            // Button Feedback එක
             const originalText = this.innerText;
             this.innerText = "✓ Added";
             this.style.pointerEvents = "none";
@@ -78,8 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (cartTotalPriceElement) cartTotalPriceElement.innerText = `Rs. ${totalPrice}`;
     }
 
-    // 🔥 OPTIMIZATION 1 (Event Delegation): 
-    // පරණ Listener බග් එක සම්පූර්ණයෙන්ම විසඳීමට මුළු Container එකටම එක ඉවෙන්ට් එකක් දීම.
+   
     cartItemsContainer?.addEventListener("click", (e) => {
         const btn = e.target.closest(".qty-btn");
         if (!btn) return;
@@ -99,9 +94,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    // ==========================================
-    // 🎂 2. CATEGORY FILTER SYSTEM (ULTRA-SMOOTH)
-    // ==========================================
+   
+    
+   
     const filterButtons = document.querySelectorAll(".tab-btn");
     const menuCards = document.querySelectorAll(".menu-card");
 
@@ -115,10 +110,10 @@ document.addEventListener("DOMContentLoaded", () => {
             menuCards.forEach(card => {
                 const cardCategory = card.getAttribute("data-category");
                 
-                // මුලින්ම හැම එකක්ම Reset කරනවා
+                
                 card.classList.add("hide", "completely-hidden");
 
-                // 🔥 OPTIMIZATION 2: setTimeout වෙනුවට ක්ෂණිකව Layout එක Render කර සුමටව පෙන්වීම
+               
                 setTimeout(() => {
                     if (filterValue === "all" || filterValue === cardCategory) {
                         card.classList.remove("completely-hidden");
@@ -137,7 +132,7 @@ mobileMenu.addEventListener('click', () => {
     navMenu.classList.toggle('active');
 });
 
-// මෙනු එකේ ලින්ක් එකක් ක්ලික් කරපු ගමන් මෙනු එක ආපහු හැංගෙන්න
+
 document.querySelectorAll('nav ul li a').forEach(link => {
     link.addEventListener('click', () => {
         mobileMenu.classList.remove('open');
