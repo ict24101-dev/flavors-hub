@@ -55,7 +55,7 @@ header.scrolled {
 .logo {
     display: flex ;
     align-items: center;
-    margin-left: auto ;
+  /*  margin-left: auto ;*/
     min-width: unset;
 }
 
