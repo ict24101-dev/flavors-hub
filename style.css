@@ -53,10 +53,10 @@ header.scrolled {
 
 /* Logo Area Styles */
 .logo {
-    display: flex;
-    align-items: center;
-    gap: 15px; /* ලෝගෝ පින්තූරය සහ අකුරු අතර පරතරය */
-    min-width: 400px; /* 🔽 "FLAVORS HUB" වචන දෙකම එක පේළියට තබා ගැනීමට ප්‍රමාණවත් ඉඩක් දීම 🔽 */
+    display: flex !important;
+    align-items: center !important;
+    margin-left: auto !important;
+    min-width: unset !important;
 }
 
 .logo img {
@@ -1021,6 +1021,7 @@ nav ul li a:hover, nav ul li a.active {
         display: flex !important;
         align-items: center !important;
         margin-left: auto !important; /* දකුණු පැත්තට තල්ලු කිරීමට */
+        min-width: unset !important; /* 🔽 200px screen එකට 400px force කරන එක නවත්තනවා */
     }
     .logo h1 {
         font-size: 1.2rem !important; 
@@ -1112,7 +1113,7 @@ nav ul li a:hover, nav ul li a.active {
         margin-top: 70px;
         height: auto;
         min-height: calc(100vh - 70px);
-        overflow: visible;
+        overflow: hidden;
         padding: 40px 20px;
     }
 
