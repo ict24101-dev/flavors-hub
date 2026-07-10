@@ -1034,11 +1034,6 @@ nav ul li a:hover, nav ul li a.active {
         margin-right: 8px !important;
     }
 
-    /* සාමාන්‍ය මෙනුව හංගන්න */
-    header nav:not(#nav-menu) {
-        display: none !important;
-    }
-
     /* ⚠️ වම් පැත්තේ ඉඳන් එළියට එන මොබයිල් මෙනුව */
     #nav-menu {
         position: fixed !important;
