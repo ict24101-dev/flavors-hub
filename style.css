@@ -53,10 +53,10 @@ header.scrolled {
 
 /* Logo Area Styles */
 .logo {
-    display: flex !important;
-    align-items: center !important;
-    margin-left: auto !important;
-    min-width: unset !important;
+    display: flex ;
+    align-items: center;
+    margin-left: auto ;
+    min-width: unset;
 }
 
 .logo img {
@@ -1020,8 +1020,9 @@ nav ul li a:hover, nav ul li a.active {
     .logo {
         display: flex !important;
         align-items: center !important;
-        margin-left: auto !important; /* දකුණු පැත්තට තල්ලු කිරීමට */
-        min-width: unset !important; /* 🔽 200px screen එකට 400px force කරන එක නවත්තනවා */
+        margin-left: 0 !important;
+        margin-right: auto !important;
+        min-width: unset !important;
     }
     .logo h1 {
         font-size: 1.2rem !important; 
