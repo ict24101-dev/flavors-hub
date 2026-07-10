@@ -1106,9 +1106,43 @@ nav ul li a:hover, nav ul li a.active {
     .contact-section { padding: 60px 20px; }
     .contact-container { flex-direction: column; gap: 40px; }
     .contact-form { padding: 25px; }
+
+   /* Hero Section Mobile Fix */
+    .hero {
+        margin-top: 70px;
+        height: auto;
+        min-height: calc(100vh - 70px);
+        overflow: visible;
+        padding: 40px 20px;
+    }
+
+    .content h1 {
+        font-size: 42px;
+        line-height: 1.25;
+    }
+
+    .content h3 {
+        font-size: 16px;
+        letter-spacing: 2px;
+    }
+
+    .content p {
+        font-size: 15px;
+        padding: 0 10px;
+    }
+
+    .btn {
+        margin-top: 25px;
+        padding: 14px 30px;
+        font-size: 16px;
+    }
 }
 
 @media (max-width: 600px) {
     .reserve-form { padding: 25px; }
     .form-group { flex-direction: column; gap: 20px; }
+
+   .content h1 {
+        font-size: 32px;
+    }
 }
